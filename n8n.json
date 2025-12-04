@@ -1,0 +1,97 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8,
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -48,
+        -80
+      ],
+      "id": "689839c2-e438-4366-b5e1-70b1fe71f1c8",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.id_chat }}",
+        "text": "=Wiem że masz czas i przerób teraz 5 słówek w Anki ",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        -80
+      ],
+      "id": "3fa8d289-e737-490d-b73c-fd58033fbe9d",
+      "name": "Send a text message",
+      "webhookId": "b2886286-340f-49bf-b477-adbff377d4ba",
+      "credentials": {
+        "telegramApi": {
+          "id": "gFqrqvMMuykchDgs",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "r5iHFZ9vD734mOPl",
+          "mode": "list",
+          "cachedResultName": "n8n",
+          "cachedResultUrl": "/projects/bObCSV5kAX5lUQ0D/datatables/r5iHFZ9vD734mOPl"
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        176,
+        -80
+      ],
+      "id": "e8def388-90a6-4953-9633-c0341916e544",
+      "name": "Get row(s)"
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "fc1ba0345969f7228871df9e64b3b47e4f43ee33b19ce42717b44162e39dba6e"
+  }
+}
