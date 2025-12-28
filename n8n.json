@@ -5,7 +5,7 @@
         "rule": {
           "interval": [
             {
-              "triggerAtHour": 8,
+              "triggerAtHour": 7,
               "triggerAtMinute": 30
             }
           ]
@@ -14,35 +14,11 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.3,
       "position": [
-        -48,
+        -32,
         -80
       ],
       "id": "689839c2-e438-4366-b5e1-70b1fe71f1c8",
       "name": "Schedule Trigger"
-    },
-    {
-      "parameters": {
-        "chatId": "={{ $json.id_chat }}",
-        "text": "=Wiem że masz czas i przerób teraz 5 słówek w Anki ",
-        "additionalFields": {
-          "appendAttribution": false
-        }
-      },
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [
-        400,
-        -80
-      ],
-      "id": "3fa8d289-e737-490d-b73c-fd58033fbe9d",
-      "name": "Send a text message",
-      "webhookId": "b2886286-340f-49bf-b477-adbff377d4ba",
-      "credentials": {
-        "telegramApi": {
-          "id": "gFqrqvMMuykchDgs",
-          "name": "Telegram account"
-        }
-      }
     },
     {
       "parameters": {
@@ -58,11 +34,165 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1,
       "position": [
-        176,
+        192,
         -80
       ],
       "id": "e8def388-90a6-4953-9633-c0341916e544",
       "name": "Get row(s)"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.id_chat }}",
+        "text": "Wiem, że masz czas, posłuchaj podcastu po angielsku.  Przejdź do najnowszego odcinka BBC Learning English: <a href=\"https://www.bbc.co.uk/learningenglish/english/features/the-english-we-speak_2025/\">🎧 Słuchaj: The English We Speak</a>",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "HTML"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        416,
+        -80
+      ],
+      "id": "3fa8d289-e737-490d-b73c-fd58033fbe9d",
+      "name": "Send a text message",
+      "webhookId": "b2886286-340f-49bf-b477-adbff377d4ba",
+      "credentials": {
+        "telegramApi": {
+          "id": "gFqrqvMMuykchDgs",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 20
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -32,
+        144
+      ],
+      "id": "253429eb-e664-4abd-b144-817e5027508a",
+      "name": "Schedule Trigger1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "r5iHFZ9vD734mOPl",
+          "mode": "list",
+          "cachedResultName": "n8n",
+          "cachedResultUrl": "/projects/bObCSV5kAX5lUQ0D/datatables/r5iHFZ9vD734mOPl"
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        192,
+        144
+      ],
+      "id": "ba5f5ad5-8e72-4b4b-98df-6b40ec50cc53",
+      "name": "Get row(s)1"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.id_chat }}",
+        "text": "Wiem, że masz chwilę, wykorzystaj ją na angielski!   Poćwicz teraz swobodną rozmowę z AI: <a href=\"https://gemini.google.com/\">✨ Rozpocznij czat z Gemini</a>",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "HTML"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        416,
+        144
+      ],
+      "id": "49cc87f0-f11e-4e01-bfc1-1cb369f33fc8",
+      "name": "Send a text message1",
+      "webhookId": "b2886286-340f-49bf-b477-adbff377d4ba",
+      "credentials": {
+        "telegramApi": {
+          "id": "gFqrqvMMuykchDgs",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8,
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -32,
+        368
+      ],
+      "id": "5cf2a0ba-4ca6-43ad-8f20-03b98a410db6",
+      "name": "Schedule Trigger2"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "r5iHFZ9vD734mOPl",
+          "mode": "list",
+          "cachedResultName": "n8n",
+          "cachedResultUrl": "/projects/bObCSV5kAX5lUQ0D/datatables/r5iHFZ9vD734mOPl"
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        192,
+        368
+      ],
+      "id": "35be5b59-e65b-4df3-9b26-542a0993d61f",
+      "name": "Get row(s)2"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.id_chat }}",
+        "text": "Wiem, że masz czas, wykorzystaj go na powtórkę!  Czas na Twoje fiszki – utrwal wiedzę z dzisiejszego dnia: <a href=\"https://play.google.com/store/apps/details?id=com.ichi2.anki\">🗂️ Otwórz AnkiDroid i zacznij naukę</a>",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "HTML"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        416,
+        368
+      ],
+      "id": "48bfb1c2-b3d5-4d93-80e4-bd7ea54d7272",
+      "name": "Send a text message2",
+      "webhookId": "b2886286-340f-49bf-b477-adbff377d4ba",
+      "credentials": {
+        "telegramApi": {
+          "id": "gFqrqvMMuykchDgs",
+          "name": "Telegram account"
+        }
+      }
     }
   ],
   "connections": {
@@ -82,6 +212,50 @@
         [
           {
             "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Get row(s)1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger2": {
+      "main": [
+        [
+          {
+            "node": "Get row(s)2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)2": {
+      "main": [
+        [
+          {
+            "node": "Send a text message2",
             "type": "main",
             "index": 0
           }
