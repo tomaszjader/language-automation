@@ -1,17 +1,31 @@
-# Telegram Anki Reminder Bot
+# 🇬🇧 n8n Workflow: Daily English Learning Assistant
 
-Prosty automatyczny system przypomnień o nauce słówek w Anki, zbudowany w n8n.
+Ten workflow dla platformy **n8n** to automatyczny asystent nauki języka angielskiego. System wysyła zaplanowane powiadomienia na **Telegram**, serwując użytkownikowi odpowiednie materiały edukacyjne (podcasty, czat AI, fiszki) w optymalnych porach dnia.
 
-## Funkcje
-* **Automatyczny wyzwalacz**: Codzienne uruchomienie o godzinie **08:30**.
-* **Baza danych**: Pobieranie danych (np. ID czatu) z wbudowanych tabel n8n (Data Table).
-* **Integracja z Telegramem**: Personalizowane powiadomienie motywujące do nauki.
+## 🚀 Funkcje
 
-## Struktura Workflow
-1.  **Schedule Trigger**: Planuje start procesu.
-2.  **Get row(s)**: Pobiera rekordy z tabeli `n8n` (ID: `r5iHFZ9vD734mOPl`).
-3.  **Telegram (Send message)**: Wysyła tekst: *"Wiem że masz czas i przerób teraz 5 słówek w Anki"* do odbiorców z bazy.
+Workflow automatyzuje wysyłkę trzech rodzajów aktywności:
+* **07:30** – Pasywne słuchanie: Link do najnowszego odcinka *BBC Learning English*.
+* **08:30** – Aktywne powtarzanie: Przypomnienie o sesji w aplikacji *AnkiDroid*.
+* **20:00** – Konwersacje: Zachęta do rozmowy z *Google Gemini* w celu przełamania bariery językowej.
 
-## Wymagania
-* Narzędzie n8n (wersja z obsługą Data Table).
-* Bot Telegrama (Token API).
+## 🛠️ Struktura Techniczna
+
+Workflow został zbudowany z wykorzystaniem następujących komponentów:
+
+1.  **Schedule Triggers**: Trzy niezależne wyzwalacze czasowe sterujące harmonogramem dnia.
+2.  **n8n DataTables**: Węzły pobierające dane użytkowników (np. `id_chat`) z wewnętrznej bazy danych n8n, co pozwala na łatwe zarządzanie listą odbiorców.
+3.  **Telegram Node**: Wykorzystuje API Telegrama do wysyłania sformatowanych wiadomości (HTML), zawierających bezpośrednie linki do zasobów.
+
+## 📦 Instalacja i Konfiguracja
+
+1.  **Import**: Skopiuj plik JSON workflow i zaimportuj go do swojego n8n (**Import from File** lub **Paste**).
+2.  **Połączenia (Credentials)**:
+    * Skonfiguruj **Telegram API** (wymagany token od @BotFather).
+    * Upewnij się, że masz dostęp do swojej bazy **n8n DataTable**.
+3.  **Dane**: Twoja tabela w n8n powinna zawierać kolumnę `id_chat`, aby węzeł mógł poprawnie zaadresować wiadomość.
+
+## 📋 Podgląd wiadomości
+
+Wiadomości są formatowane za pomocą tagów HTML, co pozwala na estetyczne wyświetlanie linków:
+> "Wiem, że masz czas, posłuchaj podcastu po angielsku. 🎧 Słuchaj: The English We Speak"
