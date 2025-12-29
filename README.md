@@ -1,4 +1,4 @@
-# 🇬🇧 n8n Workflow: Daily English Learning Assistant
+# Daily English Learning Assistant
 
 Ten workflow dla platformy **n8n** to automatyczny asystent nauki języka angielskiego. System wysyła zaplanowane powiadomienia na **Telegram**, serwując użytkownikowi odpowiednie materiały edukacyjne (podcasty, czat AI, fiszki) w optymalnych porach dnia.
 
