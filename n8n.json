@@ -70,7 +70,8 @@
         "rule": {
           "interval": [
             {
-              "triggerAtHour": 20
+              "triggerAtHour": 20,
+              "triggerAtMinute": 10
             }
           ]
         }
