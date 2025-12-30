@@ -7,7 +7,7 @@ Ten workflow dla platformy **n8n** to automatyczny asystent nauki języka angiel
 Workflow automatyzuje wysyłkę trzech rodzajów aktywności:
 * **07:30** – Pasywne słuchanie: Link do najnowszego odcinka *BBC Learning English*.
 * **08:30** – Aktywne powtarzanie: Przypomnienie o sesji w aplikacji *AnkiDroid*.
-* **20:00** – Konwersacje: Zachęta do rozmowy z *Google Gemini* w celu przełamania bariery językowej.
+* **20:10** – Konwersacje: Zachęta do rozmowy z *Google Gemini* w celu przełamania bariery językowej.
 
 ## 🛠️ Struktura Techniczna
 
